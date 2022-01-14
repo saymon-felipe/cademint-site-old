@@ -19,7 +19,7 @@ function changeAmbient(ambient) {
 // 0 - Teste
 // 1 - Produção
 // 
-changeAmbient(0);
+changeAmbient(1);
 //
 //
 
