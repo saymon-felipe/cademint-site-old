@@ -1,2 +1,2 @@
-# scrum-cademint-site
-Site demonstrativo do produto SCRUM Cademint
+# Site da Cademint
+Site demonstrativo do produto Cademint
