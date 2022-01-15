@@ -51,6 +51,10 @@ if ($(document).length) {
             return obj;
         }, {});
 
+        $(".join-beta-form").find('.response').html("");
+        $(".join-beta-form").find('.response').removeClass("success");
+        $(".join-beta-form").find('.response').removeClass("error").hide();
+
         $(".join-beta-form").find('.response').hide();
         $(".join-beta-form input").attr("disabled", "disabled");
         $(".join-beta-form button").html("<div class='loading'></div>");
@@ -63,20 +67,20 @@ if ($(document).length) {
             data: data,
             success: (res) => {
                 $(".join-beta-form").find('.response').html(res.response.message);
-                $(".join-beta-form").find('.response').addClass("success");
-                $(".join-beta-form").find('.response').show();
+                $(".join-beta-form").find('.response').removeClass("error");
+                $(".join-beta-form").find('.response').addClass("success").show();
             },
             error: (xhr) => {
                 let error;
                 if (xhr.responseJSON) {
-                    error = xhr.responseJSON;
+                    error = xhr.responseJSON.mensagem;
                 } else {
                     error = "Houve um erro ao entrar na fila do beta fechado"
                 }
 
                 $(".join-beta-form").find('.response').html(error);
-                $(".join-beta-form").find('.response').addClass("error");
-                $(".join-beta-form").find('.response').show();
+                $(".join-beta-form").find('.response').removeClass("success");
+                $(".join-beta-form").find('.response').addClass("error").show();
             },
             complete: () => {
                 $(".join-beta-form button").html("ENVIAR");
